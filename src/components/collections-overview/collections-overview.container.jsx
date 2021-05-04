@@ -1,4 +1,3 @@
-import { from } from 'apollo-boost';
 import React from 'react'
 import { Query } from 'react-apollo';
 import { gql } from 'apollo-boost'
@@ -32,7 +31,7 @@ const CollectionsOverviewContainer = () => {
     <Query query={GET_COLLECTIONS}>
       {({ loading, error, data }) => {
         if (loading) return <Spinner />
-        
+
         return <CollectionsOverview collections={data.collections} />
       }}
     </Query>
