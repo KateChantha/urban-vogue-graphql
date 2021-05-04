@@ -2,11 +2,30 @@
 
 built with React and graphQL
 
-### Data Flow
+## Why graphQL approach
+
+to help solving REST api problems of
+
+1. over fecthing / under fetching data
+2. REST api make an expensive request to multiple endponts. For qraphQL, we don't have to be aware of the different endpoint or any changes at the endpoint that we need to make a request to in order to get the data that we need.
+
+## Migrating to graphQL
+
+#### form Rest api to graphQL
+
+1. convert Rest api server to graphQL server.
+2. to make a request to graphQL endpoint, we neww to pass it either a 'query' or 'mutation'.
+3. establish a connection to a grapQL server (see index.js).
+
+#### from Redux to graphQL
+
+1. swtich front end state management from Redux to apollo client.
+
+## Data Flow
 
 #### collections-overview.container to collections-overview.component
 
-1. in collections-overview.container.jsx -- do the fteching data
+1. in collections-overview.container.jsx -- do the fetching data
 
 - bring in Query component from react-apollo to fetch data and it will give us back a function which has an access to many different properties that get passed in
 - in this file, propeties that we care about is { loading, error, data }
