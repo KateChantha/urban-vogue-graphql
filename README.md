@@ -23,7 +23,7 @@ to help solving REST api problems of
 
 ## Data Flow
 
-#### collections-overview.container to collections-overview.component
+### collections-overview.container -> collections-overview.component
 
 1. create a container - collections-overview.container.jsx -- do the fetching data
 
@@ -56,3 +56,23 @@ const CollectionsOverviewContainer = () => {
 
 - this is the page where we show CollectionOverview container
 - for a quick refactor trick, we repalce file path to /collections-overview.container instead of .component, then use an alias import naming so that we don't have to chage JSX markup
+
+### collections.container -> collections.component
+
+1. create a collections.container -- to fetch data and pass data as a props tp collections.component
+
+- writing query with variables in Query component
+
+```
+const CollectionPageContainer = ({ match }) => (
+  <Query
+    query={GET_COLLECTION_BY_TITLE}
+    variables={{ title: match.params.collectionId }}
+  >
+    { //... }
+  </Query>
+);
+
+```
+
+2. in collection.component, remove Redux binding since data is comming from props.

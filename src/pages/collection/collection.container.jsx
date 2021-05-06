@@ -25,6 +25,7 @@ const GET_COLLECTION_BY_TITLE = gql`
   }
 `;
 
+
 const CollectionPageContainer = ({ match }) => (
   <Query
     query={GET_COLLECTION_BY_TITLE}
