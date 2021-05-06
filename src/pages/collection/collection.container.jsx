@@ -8,7 +8,7 @@ import Spinner from '../../components/spinner/spinner.component';
 
 /**
  * query with variable $title
- * write a query here in order to pass title dynamically. 
+ * write a 'query' here in order to pass title dynamically. 
  */
 const GET_COLLECTION_BY_TITLE = gql`
   query getCollectionsByTitle($title: String!) {
@@ -25,7 +25,9 @@ const GET_COLLECTION_BY_TITLE = gql`
   }
 `;
 
-
+/**
+ * @desc query with variables
+ */
 const CollectionPageContainer = ({ match }) => (
   <Query
     query={GET_COLLECTION_BY_TITLE}
