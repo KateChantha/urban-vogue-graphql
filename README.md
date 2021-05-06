@@ -25,10 +25,27 @@ to help solving REST api problems of
 
 #### collections-overview.container to collections-overview.component
 
-1. in collections-overview.container.jsx -- do the fetching data
+1. create a container - collections-overview.container.jsx -- do the fetching data
 
 - bring in Query component from react-apollo to fetch data and it will give us back a function which has an access to many different properties that get passed in
 - in this file, propeties that we care about is { loading, error, data }
+
+```
+import { Query } from 'react-apollo';
+
+const CollectionsOverviewContainer = () => {
+  return (
+    <Query query={GET_COLLECTIONS}>
+      {({ loading, error, data }) => {
+        if (loading) return <Spinner />
+
+        return <CollectionsOverview collections={data.collections} />
+      }}
+    </Query>
+  )
+}
+```
+
 - conditional rendering if loading then return Spinner otherwies return CollectionOverview component and pass collection data that we just fetch to it.
 
 2. in conllections-overview.component.jsx -- do the rendering data
